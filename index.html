@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Le Roi 👑</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/themes.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/main.css"
+    >
+
+    <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#c9a227">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+</head>
+
+<body>
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+                Bienvenue sur Le Roi 👑
+            </h1>
+
+            <p id="welcomeMessage">
+                Bienvenue sur Le Roi.
+            </p>
+
+
+            <!-- Student Account -->
+
+            <div
+                id="studentAccount"
+                style="display: none;"
+            >
+
+                <p id="studentRole"></p>
+
+                <button
+                    type="button"
+                    id="logoutButton"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+
+            <!-- Guest Account -->
+
+            <div
+                id="guestAccount"
+            >
+
+                <a href="./login.html">
+                    Login
+                </a>
+
+                <a href="./register.html">
+                    Create Account
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Supabase Library -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
+
+
+    <!-- Theme JavaScript -->
+
+    <script src="./js/theme.js"></script>
+
+
+    <script src="./js/sound.js"></script>
+
+
+    <script src="./js/background.js"></script>
+
+
+    <!-- Navigation JavaScript -->
+
+    <script src="./js/navigation.js"></script>
+
+
+    <!-- Supabase Connection -->
+
+    <script src="./js/supabase.js"></script>
+
+
+    <!-- Visitor System -->
+
+    <script src="./js/visitor.js"></script>
+
+
+    <!-- Home System -->
+
+    <script src="./js/home.js"></script>
+
+
+    <script>
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", () => {
+
+            navigator.serviceWorker
+                .register("./service-worker.js")
+                .then(registration => {
+
+                    console.log(
+                        "Le Roi Service Worker registered 👑",
+                        registration.scope
+                    );
+
+                })
+                .catch(error => {
+
+                    console.error(
+                        "Service Worker registration failed:",
+                        error
+                    );
+
+                });
+
+        });
+
+    }
+</script>
+
+</body>
+
+</html>

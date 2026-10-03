@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Le Roi - Admin Dashboard</title>
+
+    <link rel="stylesheet" href="./admin.css">
+
+</head>
+
+
+<body>
+
+    <main class="dashboard">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>Le Roi 👑</h1>
+
+                <p>Admin Dashboard</p>
+
+            </div>
+
+            <button id="logoutButton">
+                Logout
+            </button>
+
+        </header>
+
+
+        <section class="dashboard-content">
+
+
+            <!-- LESSONS -->
+
+            <div class="dashboard-card">
+
+                <h2>📚 Lessons</h2>
+
+                <p>
+                    Manage French lessons.
+                </p>
+
+                <button id="manageLessonsButton">
+                    Manage Lessons
+                </button>
+
+            </div>
+
+
+            <!-- EXAMS -->
+
+            <div class="dashboard-card">
+
+                <h2>📝 Exams</h2>
+
+                <p>
+                    Manage exams and questions.
+                </p>
+
+                <button id="manageExamsButton">
+                    Manage Exams
+                </button>
+
+            </div>
+            <div class="dashboard-card">
+
+              <h2>❓ Questions</h2>
+
+              <p>
+              Manage exam questions.
+             </p>
+
+             <button id="manageQuestionsButton">
+              Manage Questions
+             </button>
+
+            </div>
+
+            <!-- VOCABULARY -->
+
+            <div class="dashboard-card">
+
+                <h2>📖 Vocabulary</h2>
+
+                <p>
+                    Manage vocabulary.
+                </p>
+
+                <button id="manageVocabularyButton">
+                    Manage Vocabulary
+                </button>
+
+            </div>
+
+
+            <!-- LISTENING -->
+
+            <div class="dashboard-card">
+
+                <h2>🎧 Listening</h2>
+
+                <p>
+                    Manage listening lessons.
+                </p>
+
+                <button id="manageListeningButton">
+                    Manage Listening
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- Supabase Library -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- Supabase Connection -->
+
+    <script src="../js/supabase.js"></script>
+
+
+    <!-- Admin JavaScript -->
+
+    <script src="./admin.js"></script>
+
+
+</body>
+
+</html>

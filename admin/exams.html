@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Le Roi - Manage Exams</title>
+
+    <link
+        rel="stylesheet"
+        href="./admin.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="dashboard">
+
+        <!-- ========================================
+             HEADER
+        ========================================= -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Le Roi 👑
+                </h1>
+
+                <p>
+                    Manage Exams
+                </p>
+
+            </div>
+
+
+            <button
+                id="backButton"
+                type="button"
+            >
+                Back to Dashboard
+            </button>
+
+        </header>
+
+
+        <!-- ========================================
+             ADD / EDIT EXAM
+        ========================================= -->
+
+        <section class="lesson-form">
+
+            <h2>
+                ➕ Add New Exam
+            </h2>
+
+
+            <form id="examForm">
+
+                <!-- EXAM TITLE -->
+
+                <label for="examTitle">
+                    Exam Title
+                </label>
+
+                <input
+                    type="text"
+                    id="examTitle"
+                    placeholder="Enter exam title"
+                    required
+                >
+
+
+                <!-- DESCRIPTION -->
+
+                <label for="examDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="examDescription"
+                    placeholder="Enter exam description"
+                    rows="4"
+                ></textarea>
+
+
+                <!-- DURATION -->
+
+                <label for="examDuration">
+                    Duration (minutes)
+                </label>
+
+                <input
+                    type="number"
+                    id="examDuration"
+                    placeholder="30"
+                    min="1"
+                    required
+                >
+              <!-- MAX ATTEMPTS -->
+
+            <label for="examMaxAttempts">
+             Maximum Attempts
+            </label>
+
+             <input
+             type="number"
+             id="examMaxAttempts"
+             placeholder="3"
+             min="1"
+            required
+             >   
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                >
+                    Save Exam
+                </button>
+
+            </form>
+
+
+            <!-- MESSAGE -->
+
+            <p id="examMessage"></p>
+
+        </section>
+
+
+        <!-- ========================================
+             EXISTING EXAMS
+        ========================================= -->
+
+        <section class="lessons-list">
+
+            <h2>
+                📝 Existing Exams
+            </h2>
+
+
+            <div id="examsContainer">
+
+                <p>
+                    Loading exams...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         SUPABASE LIBRARY
+    ========================================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- ========================================
+         SUPABASE CONNECTION
+    ========================================= -->
+
+    <script
+        src="../js/supabase.js"
+    ></script>
+
+
+    <!-- ========================================
+         ADMIN JAVASCRIPT
+    ========================================= -->
+
+    <script
+        src="./admin.js"
+    ></script>
+
+
+    <!-- ========================================
+         EXAMS JAVASCRIPT
+    ========================================= -->
+
+    <script
+        src="./exams.js"
+    ></script>
+
+</body>
+
+</html>

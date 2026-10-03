@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Le Roi - Settings
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="./css/themes.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/main.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main>
+
+        <header>
+
+            <h1>
+                Le Roi 👑
+            </h1>
+
+            <h2>
+                Settings
+            </h2>
+
+            <p>
+                Customize your Le Roi experience.
+            </p>
+
+        </header>
+
+
+        <!-- =====================================
+             APPEARANCE
+        ====================================== -->
+
+        <section>
+
+            <h2>
+                Appearance
+            </h2>
+
+            <p>
+                Choose your preferred theme.
+            </p>
+
+
+            <div id="themeOptions">
+
+
+                <!-- ROYAL -->
+
+                <button
+                    type="button"
+                    class="theme-option"
+                    data-theme="royal"
+                >
+
+                    <span>
+                        👑
+                    </span>
+
+                    <strong>
+                        Royal
+                    </strong>
+
+                    <small>
+                        The classic Le Roi theme
+                    </small>
+
+                </button>
+
+
+                <!-- OCEAN -->
+
+                <button
+                    type="button"
+                    class="theme-option"
+                    data-theme="ocean"
+                >
+
+                    <span>
+                        🌊
+                    </span>
+
+                    <strong>
+                        Ocean
+                    </strong>
+
+                    <small>
+                        Calm and refreshing
+                    </small>
+
+                </button>
+
+
+                <!-- MIDNIGHT -->
+
+                <button
+                    type="button"
+                    class="theme-option"
+                    data-theme="midnight"
+                >
+
+                    <span>
+                        🌌
+                    </span>
+
+                    <strong>
+                        Midnight
+                    </strong>
+
+                    <small>
+                        Deep and elegant
+                    </small>
+
+                </button>
+
+
+                <!-- EMERALD -->
+
+                <button
+                    type="button"
+                    class="theme-option"
+                    data-theme="emerald"
+                >
+
+                    <span>
+                        🌿
+                    </span>
+
+                    <strong>
+                        Emerald
+                    </strong>
+
+                    <small>
+                        Fresh and modern
+                    </small>
+
+                </button>
+
+
+                <!-- PARIS -->
+
+                <button
+                    type="button"
+                    class="theme-option"
+                    data-theme="paris"
+                >
+
+                    <span>
+                        🇫🇷
+                    </span>
+
+                    <strong>
+                        Paris
+                    </strong>
+
+                    <small>
+                        The City of Light
+                    </small>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             CURRENT THEME
+        ====================================== -->
+
+        <section>
+
+            <h2>
+                Current Theme
+            </h2>
+
+            <p id="currentTheme">
+                Loading...
+            </p>
+
+        </section>
+
+
+        <!-- =====================================
+     INTERACTIVE BACKGROUND
+====================================== -->
+
+<section>
+
+    <h2>
+        Interactive Background ✨
+    </h2>
+
+    <p>
+        Customize the animated background experience.
+    </p>
+
+
+    <div class="settings-control">
+
+        <div class="settings-control-info">
+
+            <strong>
+                Interactive Background
+            </strong>
+
+            <small>
+                Enable animated and interactive backgrounds.
+            </small>
+
+        </div>
+
+
+        <label
+            class="switch"
+            for="backgroundToggle"
+        >
+
+            <input
+                type="checkbox"
+                id="backgroundToggle"
+                checked
+            >
+
+            <span class="slider"></span>
+
+        </label>
+
+    </div>
+
+
+    <div class="settings-control">
+
+        <div class="settings-control-info">
+
+            <strong>
+                Background Intensity
+            </strong>
+
+            <small id="intensityValue">
+                100%
+            </small>
+
+        </div>
+
+
+        <input
+            type="range"
+            id="backgroundIntensity"
+            min="20"
+            max="100"
+            value="100"
+            step="5"
+        >
+
+    </div>
+
+</section>
+
+
+        <!-- =====================================
+             SOUND
+        ====================================== -->
+
+        <section>
+
+            <h2>
+                Sound 🔊
+            </h2>
+
+            <p>
+                Control sounds and volume across Le Roi.
+            </p>
+
+
+            <div class="settings-control">
+
+                <div class="settings-control-info">
+
+                    <strong>
+                        Sounds
+                    </strong>
+
+                    <small>
+                        Enable or disable interface sounds.
+                    </small>
+
+                </div>
+
+
+                <label
+                    class="switch"
+                    for="soundToggle"
+                >
+
+                    <input
+                        type="checkbox"
+                        id="soundToggle"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="settings-control">
+
+                <div class="settings-control-info">
+
+                    <strong>
+                        Volume
+                    </strong>
+
+                    <small id="volumeValue">
+                        70%
+                    </small>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="volumeSlider"
+                    min="0"
+                    max="100"
+                    value="70"
+                    step="1"
+                >
+
+            </div>
+
+
+            <button
+                type="button"
+                id="testSoundButton"
+                class="button"
+            >
+
+                🔊 Test Sound
+
+            </button>
+
+        </section>
+
+
+        <!-- =====================================
+             RESET SETTINGS
+        ====================================== -->
+
+        <section>
+
+            <h2>
+                Reset
+            </h2>
+
+            <p>
+                Restore Le Roi settings to their defaults.
+            </p>
+
+
+            <button
+                type="button"
+                id="resetSettingsButton"
+                class="button"
+            >
+
+                Reset Settings
+
+            </button>
+
+        </section>
+
+
+        <!-- =====================================
+             BACK
+        ====================================== -->
+
+        <section>
+
+            <button
+                id="backButton"
+                type="button"
+                class="button"
+            >
+
+                Back
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="./js/theme.js"></script>
+
+    <script src="./js/sound.js"></script>
+
+    <script src="./js/background.js"></script>
+
+    <script src="./js/navigation.js"></script>
+
+    <script src="./js/settings.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Le Roi - Manage Lessons</title>
+
+    <link
+        rel="stylesheet"
+        href="./admin.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="dashboard">
+
+        <!-- ========================================
+             HEADER
+        ========================================= -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Le Roi 👑
+                </h1>
+
+                <p>
+                    Manage Lessons
+                </p>
+
+            </div>
+
+
+            <button
+                id="backButton"
+                type="button"
+            >
+                Back to Dashboard
+            </button>
+
+        </header>
+
+
+        <!-- ========================================
+             ADD / EDIT LESSON
+        ========================================= -->
+
+        <section class="lesson-form">
+
+            <h2>
+                ➕ Add New Lesson
+            </h2>
+
+
+            <form id="lessonForm">
+
+                <!-- TITLE -->
+
+                <label for="lessonTitle">
+                    Lesson Title
+                </label>
+
+                <input
+                    type="text"
+                    id="lessonTitle"
+                    placeholder="Enter lesson title"
+                    required
+                >
+
+
+                <!-- DESCRIPTION -->
+
+                <label for="lessonDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="lessonDescription"
+                    placeholder="Enter lesson description"
+                    rows="4"
+                ></textarea>
+
+
+                <!-- CONTENT -->
+
+                <label for="lessonContent">
+                    Lesson Content
+                </label>
+
+                <textarea
+                    id="lessonContent"
+                    placeholder="Write the lesson content here..."
+                    rows="10"
+                ></textarea>
+
+
+                <!-- IMAGE -->
+
+                <label for="lessonImage">
+                    Lesson Image
+                </label>
+
+                <input
+                    type="file"
+                    id="lessonImage"
+                    accept="image/png, image/jpeg, image/webp"
+                >
+
+                <small>
+                    JPG, PNG, or WEBP — maximum 5MB
+                </small>
+
+
+                <!-- PDF -->
+
+                <label for="lessonPDF">
+                    Lesson PDF
+                </label>
+
+                <input
+                    type="file"
+                    id="lessonPDF"
+                    accept="application/pdf"
+                >
+
+                <small>
+                    PDF only — maximum 20MB
+                </small>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                >
+                    Save Lesson
+                </button>
+
+            </form>
+
+
+            <!-- MESSAGE -->
+
+            <p id="lessonMessage"></p>
+
+        </section>
+
+
+        <!-- ========================================
+             EXISTING LESSONS
+        ========================================= -->
+
+        <section class="lessons-list">
+
+            <h2>
+                📚 Existing Lessons
+            </h2>
+
+
+            <div id="lessonsContainer">
+
+                <p>
+                    Loading lessons...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         SUPABASE LIBRARY
+    ========================================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- ========================================
+         SUPABASE CONNECTION
+    ========================================= -->
+
+    <script
+        src="../js/supabase.js"
+    ></script>
+
+
+    <!-- ========================================
+         ADMIN JAVASCRIPT
+    ========================================= -->
+
+    <script
+        src="./admin.js"
+    ></script>
+
+
+    <!-- ========================================
+         LESSONS JAVASCRIPT
+    ========================================= -->
+
+    <script
+        src="./lessons.js"
+    ></script>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Le Roi - Exam Results</title>
+  
+    <link
+    rel="stylesheet"
+    href="./css/themes.css"
+>
+
+<link
+    rel="stylesheet"
+    href="./css/main.css"
+>
+
+</head>
+
+<body>
+
+    <main>
+
+        <!-- ==============================
+             HEADER
+        =============================== -->
+
+        <header>
+
+            <h1>
+                Le Roi 👑
+            </h1>
+
+            <h2 id="resultTitle">
+                Exam Results
+            </h2>
+
+            <p id="resultDescription">
+                Here is your exam result.
+            </p>
+
+        </header>
+
+
+        <!-- ==============================
+             SCORE
+        =============================== -->
+
+        <section id="scoreSection">
+
+            <h2>
+                Your Score
+            </h2>
+
+            <div id="scoreDisplay">
+                Loading...
+            </div>
+
+            <div id="percentageDisplay">
+                Loading...
+            </div>
+
+
+            <!-- ==============================
+                 STATISTICS
+            =============================== -->
+
+            <div id="resultStats">
+
+                <div class="result-stat">
+
+                    <strong id="correctCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Correct
+                    </span>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <strong id="wrongCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Wrong
+                    </span>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <strong id="unansweredCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Not Answered
+                    </span>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <strong id="totalCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Total
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             QUESTION REVIEW
+        =============================== -->
+
+        <section id="reviewSection">
+
+            <h2>
+                Question Review
+            </h2>
+
+            <div id="questionsReview">
+
+                <p>
+                    Loading answers...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             ACTIONS
+        =============================== -->
+
+        <section id="resultActions">
+
+            <button
+                id="backToExams"
+                type="button"
+            >
+                Back to Exams
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         SUPABASE
+    =============================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
+
+
+    <script src="./js/supabase.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/sound.js"></script>
+    <script src="./js/background.js"></script>
+    <!-- Navigation JavaScript -->
+    <script src="./js/navigation.js"></script>
+    
+    <script src="./js/results.js"></script>
+
+</body>
+
+</html>

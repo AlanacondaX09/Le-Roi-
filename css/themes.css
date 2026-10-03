@@ -1,0 +1,953 @@
+/* =========================================
+   LE ROI — INTERACTIVE THEME ENGINE
+========================================= */
+
+:root {
+
+    --theme-mouse-x: 50%;
+    --theme-mouse-y: 50%;
+
+}
+
+
+/* =========================================
+   BASE
+========================================= */
+
+html,
+body {
+
+    min-height: 100%;
+
+}
+
+
+body {
+
+    position: relative;
+
+    overflow-x: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at var(--theme-mouse-x) var(--theme-mouse-y),
+            var(--accent-glow),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 20% 20%,
+            var(--orb-one),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            var(--orb-two),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--bg-primary),
+            var(--bg-secondary)
+        );
+
+    background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+
+    color: var(--text-primary);
+
+    transition:
+        background 0.8s ease,
+        color 0.5s ease;
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================
+   INTERACTIVE BACKGROUND
+========================================= */
+
+#leRoiInteractiveBackground {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    pointer-events: none !important;
+
+    overflow: hidden;
+
+}
+
+
+/*
+   كل محتوى الموقع فوق الخلفية
+*/
+
+body > *:not(#leRoiInteractiveBackground) {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/*
+   الـ particles نفسها لا تعطل الضغط
+*/
+
+#leRoiInteractiveBackground canvas,
+#leRoiInteractiveBackground > div {
+
+    pointer-events: none !important;
+
+}
+
+
+/* =========================================
+   ANIMATED ATMOSPHERE
+========================================= */
+
+body::before,
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    filter: blur(80px);
+
+    opacity: 0.45;
+
+    animation:
+        floatingOrb 14s ease-in-out infinite
+        alternate;
+
+}
+
+
+body::before {
+
+    top: -140px;
+
+    left: -100px;
+
+    background:
+        var(--orb-one);
+
+}
+
+
+body::after {
+
+    right: -140px;
+
+    bottom: -140px;
+
+    background:
+        var(--orb-two);
+
+    animation-delay: -7s;
+
+}
+
+
+/* =========================================
+   ROYAL
+========================================= */
+
+body.theme-royal {
+
+    --bg-primary: #080512;
+
+    --bg-secondary: #171027;
+
+    --surface:
+        rgba(255, 255, 255, 0.075);
+
+    --surface-strong:
+        rgba(255, 255, 255, 0.13);
+
+    --text-primary: #ffffff;
+
+    --text-secondary: #c9c3d8;
+
+    --accent: #d4af37;
+
+    --accent-light: #f4d875;
+
+    --accent-glow:
+        rgba(212, 175, 55, 0.20);
+
+    --orb-one:
+        rgba(120, 70, 255, 0.25);
+
+    --orb-two:
+        rgba(212, 175, 55, 0.20);
+
+    --border:
+        rgba(255, 255, 255, 0.12);
+
+    --shadow:
+        rgba(0, 0, 0, 0.40);
+
+}
+
+
+/* =========================================
+   OCEAN
+========================================= */
+
+body.theme-ocean {
+
+    --bg-primary: #021018;
+
+    --bg-secondary: #063143;
+
+    --surface:
+        rgba(90, 220, 255, 0.075);
+
+    --surface-strong:
+        rgba(90, 220, 255, 0.14);
+
+    --text-primary: #f5fdff;
+
+    --text-secondary: #b9dce5;
+
+    --accent: #38d9ff;
+
+    --accent-light: #91edff;
+
+    --accent-glow:
+        rgba(56, 217, 255, 0.20);
+
+    --orb-one:
+        rgba(0, 140, 255, 0.22);
+
+    --orb-two:
+        rgba(0, 240, 210, 0.17);
+
+    --border:
+        rgba(90, 220, 255, 0.18);
+
+    --shadow:
+        rgba(0, 0, 0, 0.42);
+
+}
+
+
+/* =========================================
+   MIDNIGHT
+========================================= */
+
+body.theme-midnight {
+
+    --bg-primary: #03040a;
+
+    --bg-secondary: #0d1124;
+
+    --surface:
+        rgba(130, 140, 255, 0.075);
+
+    --surface-strong:
+        rgba(130, 140, 255, 0.14);
+
+    --text-primary: #f8f9ff;
+
+    --text-secondary: #b8bdd4;
+
+    --accent: #8b7cff;
+
+    --accent-light: #bbb0ff;
+
+    --accent-glow:
+        rgba(139, 124, 255, 0.20);
+
+    --orb-one:
+        rgba(80, 50, 255, 0.25);
+
+    --orb-two:
+        rgba(180, 60, 255, 0.18);
+
+    --border:
+        rgba(150, 150, 255, 0.17);
+
+    --shadow:
+        rgba(0, 0, 0, 0.50);
+
+}
+
+
+/* =========================================
+   EMERALD
+========================================= */
+
+body.theme-emerald {
+
+    --bg-primary: #03100b;
+
+    --bg-secondary: #09251b;
+
+    --surface:
+        rgba(60, 220, 150, 0.075);
+
+    --surface-strong:
+        rgba(60, 220, 150, 0.14);
+
+    --text-primary: #f4fff9;
+
+    --text-secondary: #b9d8ca;
+
+    --accent: #36d98a;
+
+    --accent-light: #7bf0b1;
+
+    --accent-glow:
+        rgba(54, 217, 138, 0.20);
+
+    --orb-one:
+        rgba(0, 190, 120, 0.22);
+
+    --orb-two:
+        rgba(70, 255, 180, 0.15);
+
+    --border:
+        rgba(80, 230, 160, 0.17);
+
+    --shadow:
+        rgba(0, 0, 0, 0.42);
+
+}
+
+
+/* =========================================
+   PARIS 🇫🇷
+========================================= */
+
+body.theme-paris {
+
+    --bg-primary: #07101d;
+
+    --bg-secondary: #111827;
+
+    --surface:
+        rgba(8, 15, 28, 0.52);
+
+    --surface-strong:
+        rgba(15, 24, 42, 0.70);
+
+    --text-primary: #ffffff;
+
+    --text-secondary:
+        #d8dce6;
+
+    --accent:
+        #d7ad55;
+
+    --accent-light:
+        #ffe4a0;
+
+    --accent-glow:
+        rgba(215, 173, 85, 0.30);
+
+    --orb-one:
+        rgba(53, 113, 180, 0.22);
+
+    --orb-two:
+        rgba(215, 173, 85, 0.20);
+
+    --border:
+        rgba(255, 220, 150, 0.18);
+
+    --shadow:
+        rgba(0, 0, 0, 0.60);
+
+
+    background-image:
+
+        radial-gradient(
+            circle at var(--theme-mouse-x) var(--theme-mouse-y),
+            rgba(255, 214, 120, 0.22),
+            transparent 22%
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(4, 9, 18, 0.25),
+            rgba(3, 7, 15, 0.55)
+        ),
+
+        url("../assets/paris-theme.jpg");
+
+
+    background-size:
+
+        100% 100%,
+        100% 100%,
+        cover;
+
+
+    background-position:
+
+        center,
+        center,
+        center;
+
+
+    background-repeat:
+
+        no-repeat;
+
+
+    background-attachment:
+
+        fixed;
+
+
+    animation:
+
+        parisBackground 22s ease-in-out infinite
+        alternate;
+
+}
+
+
+/* =========================================
+   PARIS ATMOSPHERE
+========================================= */
+
+body.theme-paris::before {
+
+    width: 500px;
+
+    height: 500px;
+
+    top: -180px;
+
+    left: -140px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(215, 173, 85, 0.28),
+            rgba(70, 100, 150, 0.10),
+            transparent 70%
+        );
+
+    filter: blur(90px);
+
+    opacity: 0.65;
+
+}
+
+
+body.theme-paris::after {
+
+    width: 600px;
+
+    height: 600px;
+
+    right: -220px;
+
+    bottom: -220px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(215, 173, 85, 0.22),
+            transparent 68%
+        );
+
+    filter: blur(100px);
+
+    opacity: 0.55;
+
+}
+
+
+/* =========================================
+   PARIS MAIN CONTENT
+========================================= */
+
+body.theme-paris main {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/* =========================================
+   GLASS SURFACES
+========================================= */
+
+section,
+article,
+header {
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 20px 60px var(--shadow);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    transition:
+
+        background 0.5s ease,
+
+        border-color 0.5s ease,
+
+        box-shadow 0.5s ease;
+
+}
+
+
+/* =========================================
+   PARIS GLASS
+========================================= */
+
+body.theme-paris section,
+body.theme-paris article,
+body.theme-paris header {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(8, 15, 28, 0.58),
+            rgba(17, 25, 40, 0.38)
+        );
+
+    border-color:
+
+        rgba(255, 218, 140, 0.22);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0, 0, 0, 0.55),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+
+    color:
+        var(--text-primary);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-light)
+        );
+
+    border:
+        none;
+
+    cursor:
+        pointer;
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease,
+
+        filter 0.25s ease;
+
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+
+        0 12px 30px
+        var(--accent-glow);
+
+    filter:
+        brightness(1.08);
+
+}
+
+
+button:active {
+
+    transform:
+        translateY(-1px)
+        scale(0.98);
+
+}
+
+
+/* =========================================
+   PARIS BUTTON
+========================================= */
+
+body.theme-paris button {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #b88935,
+            #f5d47c
+        );
+
+    color:
+        #17120a;
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(215, 173, 85, 0.18);
+
+}
+
+
+body.theme-paris button:hover {
+
+    box-shadow:
+
+        0 15px 35px
+        rgba(215, 173, 85, 0.35);
+
+}
+
+
+/* =========================================
+   THEME OPTIONS
+========================================= */
+
+.theme-option {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    cursor:
+        pointer;
+
+    user-select:
+        none;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+/* =========================================
+   THEME OPTION HOVER LIGHT
+========================================= */
+
+.theme-option::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        120px;
+
+    height:
+        120px;
+
+    border-radius:
+        50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            var(--accent-glow),
+            transparent 70%
+        );
+
+    left:
+        var(--theme-mouse-x);
+
+    top:
+        var(--theme-mouse-y);
+
+    transform:
+        translate(-50%, -50%);
+
+    opacity:
+        0;
+
+    transition:
+        opacity 0.3s ease;
+
+    pointer-events:
+        none;
+
+}
+
+
+.theme-option:hover::before {
+
+    opacity:
+        1;
+
+}
+
+
+/* =========================================
+   ACTIVE THEME
+========================================= */
+
+.theme-option.active {
+
+    border:
+        2px solid var(--accent);
+
+    box-shadow:
+
+        0 0 30px
+        var(--accent-glow);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================
+   THEME OPTION TEXT
+========================================= */
+
+.theme-option strong,
+.theme-option small {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+/* =========================================
+   PARIS THEME OPTION
+========================================= */
+
+.theme-option[data-theme="paris"] {
+
+    background:
+
+        linear-gradient(
+            rgba(5, 10, 18, 0.65),
+            rgba(5, 10, 18, 0.65)
+        ),
+
+        url("../assets/paris-theme.jpg");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    color:
+        white;
+
+    border:
+        1px solid
+        rgba(255, 218, 140, 0.25);
+
+    min-height:
+        150px;
+
+}
+
+
+.theme-option[data-theme="paris"] strong {
+
+    color:
+        #ffe29a;
+
+}
+
+
+.theme-option[data-theme="paris"] small {
+
+    color:
+        #e3e7ef;
+
+}
+
+
+/* =========================================
+   FLOATING ORBS
+========================================= */
+
+@keyframes floatingOrb {
+
+    0% {
+
+        transform:
+
+            translate3d(
+                -30px,
+                -20px,
+                0
+            )
+
+            scale(1);
+
+    }
+
+
+    50% {
+
+        transform:
+
+            translate3d(
+                60px,
+                40px,
+                0
+            )
+
+            scale(1.15);
+
+    }
+
+
+    100% {
+
+        transform:
+
+            translate3d(
+                -20px,
+                70px,
+                0
+            )
+
+            scale(0.95);
+
+    }
+
+}
+
+
+/* =========================================
+   PARIS BACKGROUND MOTION
+========================================= */
+
+@keyframes parisBackground {
+
+    0% {
+
+        background-position:
+
+            center,
+            center,
+            50% 50%;
+
+    }
+
+
+    50% {
+
+        background-position:
+
+            center,
+            center,
+            51% 49%;
+
+    }
+
+
+    100% {
+
+        background-position:
+
+            center,
+            center,
+            49% 51%;
+
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}

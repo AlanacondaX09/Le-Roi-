@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Le Roi - Manage Questions</title>
+
+    <link
+        rel="stylesheet"
+        href="./admin.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="dashboard">
+
+        <!-- ========================================
+             HEADER
+        ========================================= -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Le Roi 👑
+                </h1>
+
+                <p>
+                    Manage Questions
+                </p>
+
+            </div>
+
+
+            <button
+                id="backButton"
+                type="button"
+            >
+                Back to Dashboard
+            </button>
+
+        </header>
+
+
+        <!-- ========================================
+             ADD / EDIT QUESTION
+        ========================================= -->
+
+        <section class="lesson-form">
+
+            <h2>
+                ❓ Add New Question
+            </h2>
+
+
+            <form id="questionForm">
+
+                <!-- ========================================
+                     SELECT EXAM
+                ========================================= -->
+
+                <label for="questionExam">
+                    Select Exam
+                </label>
+
+                <select
+                    id="questionExam"
+                    required
+                >
+
+                    <option value="">
+                        Loading exams...
+                    </option>
+
+                </select>
+
+
+                <!-- ========================================
+                     QUESTION
+                ========================================= -->
+
+                <label for="questionText">
+                    Question
+                </label>
+
+                <textarea
+                    id="questionText"
+                    placeholder="Write the question here..."
+                    rows="5"
+                    required
+                ></textarea>
+
+
+                <!-- ========================================
+                     OPTION A
+                ========================================= -->
+
+                <label for="optionA">
+                    Option A
+                </label>
+
+                <input
+                    type="text"
+                    id="optionA"
+                    placeholder="Enter option A"
+                    required
+                >
+
+
+                <!-- ========================================
+                     OPTION B
+                ========================================= -->
+
+                <label for="optionB">
+                    Option B
+                </label>
+
+                <input
+                    type="text"
+                    id="optionB"
+                    placeholder="Enter option B"
+                    required
+                >
+
+
+                <!-- ========================================
+                     OPTION C
+                ========================================= -->
+
+                <label for="optionC">
+                    Option C
+                </label>
+
+                <input
+                    type="text"
+                    id="optionC"
+                    placeholder="Enter option C"
+                >
+
+
+                <!-- ========================================
+                     OPTION D
+                ======================================== -->
+
+                <label for="optionD">
+                    Option D
+                </label>
+
+                <input
+                    type="text"
+                    id="optionD"
+                    placeholder="Enter option D"
+                >
+
+
+                <!-- ========================================
+                     CORRECT ANSWER
+                ========================================= -->
+
+                <label for="correctAnswer">
+                    Correct Answer
+                </label>
+
+                <select
+                    id="correctAnswer"
+                    required
+                >
+
+                    <option value="">
+                        Select correct answer
+                    </option>
+
+                    <option value="A">
+                        Option A
+                    </option>
+
+                    <option value="B">
+                        Option B
+                    </option>
+
+                    <option value="C">
+                        Option C
+                    </option>
+
+                    <option value="D">
+                        Option D
+                    </option>
+
+                </select>
+
+
+                <!-- ========================================
+                     SUBMIT
+                ========================================= -->
+
+                <button
+                    type="submit"
+                >
+                    Save Question
+                </button>
+
+            </form>
+
+
+            <!-- ========================================
+                 MESSAGE
+            ========================================= -->
+
+            <p id="questionMessage"></p>
+
+        </section>
+
+
+        <!-- ========================================
+             EXISTING QUESTIONS
+        ========================================= -->
+
+        <section class="lessons-list">
+
+            <h2>
+                📋 Existing Questions
+            </h2>
+
+
+            <div id="questionsContainer">
+
+                <p>
+                    Select an exam to view its questions.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         SUPABASE LIBRARY
+    ========================================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- ========================================
+         SUPABASE CONNECTION
+    ======================================== -->
+
+    <script
+        src="../js/supabase.js"
+    ></script>
+
+
+    <!-- ========================================
+         ADMIN JAVASCRIPT
+    ======================================== -->
+
+    <script
+        src="./admin.js"
+    ></script>
+
+
+    <!-- ========================================
+         QUESTIONS JAVASCRIPT
+    ======================================== -->
+
+    <script
+        src="./questions.js"
+    ></script>
+
+</body>
+
+</html>
