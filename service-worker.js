@@ -2,28 +2,17 @@
    LE ROI — SERVICE WORKER 👑
 ========================================= */
 
-const CACHE_NAME = "le-roi-v1";
-
+const CACHE_NAME = "le-roi-v2";
 
 const APP_SHELL = [
-
     "./",
-
     "./index.html",
-
     "./manifest.json",
-
-    /* =========================
-       CSS
-    ========================= */
 
     "./css/main.css",
     "./css/themes.css",
-
-
-    /* =========================
-       JAVASCRIPT
-    ========================= */
+    "./css/login.css",
+    "./css/register.css",
 
     "./js/supabase.js",
     "./js/theme.js",
@@ -32,30 +21,24 @@ const APP_SHELL = [
     "./js/sound.js",
     "./js/background.js",
 
+    "./js/home.js",
     "./js/lessons.js",
     "./js/exams.js",
     "./js/exam.js",
     "./js/results.js",
-
-
-    /* =========================
-       PAGES
-    ========================= */
+    "./js/login.js",
+    "./js/register.js",
 
     "./lessons.html",
     "./exams.html",
     "./exam.html",
     "./results.html",
     "./settings.html",
-
-
-    /* =========================
-       PWA ICONS
-    ========================= */
+    "./login.html",
+    "./register.html",
 
     "./assets/icon/icon-192.png",
     "./assets/icon/icon-512.png"
-
 ];
 
 
@@ -93,7 +76,9 @@ self.addEventListener("install", event => {
 
 self.addEventListener("activate", event => {
 
-    console.log("LE ROI SERVICE WORKER — ACTIVATE 👑");
+    console.log(
+        "LE ROI SERVICE WORKER — ACTIVATE 👑"
+    );
 
     event.waitUntil(
 
@@ -131,20 +116,31 @@ self.addEventListener("fetch", event => {
 
     const request = event.request;
 
-
-    /* =========================
-       Only handle GET requests
-    ========================= */
-
     if (request.method !== "GET") {
         return;
     }
 
 
-    /* =========================
-       Navigation requests
-       Network first
-    ========================= */
+    /* =====================================
+       SUPABASE MUST NEVER USE CACHE
+    ===================================== */
+
+    if (
+        request.url.includes("supabase.co") ||
+        request.url.includes("supabase.in")
+    ) {
+
+        event.respondWith(
+            fetch(request)
+        );
+
+        return;
+    }
+
+
+    /* =====================================
+       PAGE NAVIGATION
+    ===================================== */
 
     if (request.mode === "navigate") {
 
@@ -173,19 +169,18 @@ self.addEventListener("fetch", event => {
 
                 .catch(() => {
 
-                    return caches.match(
-                        request
-                    )
-                    .then(cachedPage => {
+                    return caches.match(request)
 
-                        return (
-                            cachedPage ||
-                            caches.match(
-                                "./index.html"
-                            )
-                        );
+                        .then(cachedPage => {
 
-                    });
+                            return (
+                                cachedPage ||
+                                caches.match(
+                                    "./index.html"
+                                )
+                            );
+
+                        });
 
                 })
 
@@ -195,10 +190,9 @@ self.addEventListener("fetch", event => {
     }
 
 
-    /* =========================
-       Static files
-       Cache first
-    ========================= */
+    /* =====================================
+       STATIC FILES
+    ===================================== */
 
     event.respondWith(
 
@@ -207,9 +201,7 @@ self.addEventListener("fetch", event => {
             .then(cachedResponse => {
 
                 if (cachedResponse) {
-
                     return cachedResponse;
-
                 }
 
 
@@ -222,15 +214,12 @@ self.addEventListener("fetch", event => {
                             response.status !== 200 ||
                             response.type === "opaque"
                         ) {
-
                             return response;
-
                         }
 
 
                         const responseClone =
                             response.clone();
-
 
                         caches.open(CACHE_NAME)
                             .then(cache => {
@@ -241,7 +230,6 @@ self.addEventListener("fetch", event => {
                                 );
 
                             });
-
 
                         return response;
 
